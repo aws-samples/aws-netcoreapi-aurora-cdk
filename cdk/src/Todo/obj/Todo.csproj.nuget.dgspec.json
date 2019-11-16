@@ -1,0 +1,116 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj": {}
+  },
+  "projects": {
+    "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj",
+        "projectName": "Todo",
+        "projectPath": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj",
+        "packagesPath": "/Users/ramansiv/.nuget/packages/",
+        "outputPath": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/ramansiv/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Amazon.CDK": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.ApplicationAutoScaling": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.CloudWatch": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.CodeBuild": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.CodeCommit": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.ECR": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.ECS": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.ECS.Patterns": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.ElasticLoadBalancingV2": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.IAM": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.RDS": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.S3": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Amazon.CDK.AWS.SSM": {
+              "target": "Package",
+              "version": "[1.15.0-devpreview, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

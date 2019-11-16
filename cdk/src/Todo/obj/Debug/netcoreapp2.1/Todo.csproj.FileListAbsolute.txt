@@ -1,0 +1,10 @@
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.csprojAssemblyReference.cache
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.AssemblyInfoInputs.cache
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.AssemblyInfo.cs
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/bin/Debug/netcoreapp2.1/Todo.deps.json
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/bin/Debug/netcoreapp2.1/Todo.runtimeconfig.json
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/bin/Debug/netcoreapp2.1/Todo.runtimeconfig.dev.json
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/bin/Debug/netcoreapp2.1/Todo.dll
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/bin/Debug/netcoreapp2.1/Todo.pdb
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.dll
+/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.pdb

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.CDK" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.ApplicationAutoScaling" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.ECR" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.ECS.Patterns" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.ElasticLoadBalancingV2" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.IAM" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.RDS" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.S3" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.ECS" Version="1.15.0-devpreview" />
+    <PackageReference Include="Amazon.CDK.AWS.SSM" Version="1.15.0-devpreview" />
+  </ItemGroup>
+
+</Project>

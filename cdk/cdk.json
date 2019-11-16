@@ -1,0 +1,3 @@
+{
+  "app": "dotnet src/Todo/bin/Debug/netcoreapp2.1/Todo.dll"
+}

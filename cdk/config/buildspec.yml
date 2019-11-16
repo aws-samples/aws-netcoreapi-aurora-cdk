@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: 2.2
+  pre_build:
+    commands:
+      - aws --version
+      # Cloudformation will set this application environment variables for CodeBuild
+      # REPOSITORY_URI=<youraccountnumber>.dkr.ecr.<region>.amazonaws.com/todo-repository
+      # AWS_DEFAULT_REGION=region ex: us-east-1
+      - echo 'region - ' - $AWS_DEFAULT_REGION
+      - echo 'repository - ' $REPOSITORY_URI
+      - cd webapi/
+      - echo Logging in to Amazon ECR
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Push the latest Docker Image...
+      - docker push $REPOSITORY_URI:latest

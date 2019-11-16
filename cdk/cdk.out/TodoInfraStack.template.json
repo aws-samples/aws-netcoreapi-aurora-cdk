@@ -1,0 +1,1525 @@
+{
+  "Resources": {
+    "netcoreapivpc96E2D1AB": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/Resource"
+      }
+    },
+    "netcoreapivpcPublicSubnet1SubnetB51A3C53": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/18",
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PublicSubnet1"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet1/Subnet"
+      }
+    },
+    "netcoreapivpcPublicSubnet1RouteTable27FF0CBF": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet1/RouteTable"
+      }
+    },
+    "netcoreapivpcPublicSubnet1RouteTableAssociationAD716B02": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPublicSubnet1RouteTable27FF0CBF"
+        },
+        "SubnetId": {
+          "Ref": "netcoreapivpcPublicSubnet1SubnetB51A3C53"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet1/RouteTableAssociation"
+      }
+    },
+    "netcoreapivpcPublicSubnet1DefaultRoute68A2BA90": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPublicSubnet1RouteTable27FF0CBF"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "netcoreapivpcIGW71123C43"
+        }
+      },
+      "DependsOn": [
+        "netcoreapivpcVPCGW590013C5"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet1/DefaultRoute"
+      }
+    },
+    "netcoreapivpcPublicSubnet1EIP9755BCCD": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet1/EIP"
+      }
+    },
+    "netcoreapivpcPublicSubnet1NATGateway3491A159": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "netcoreapivpcPublicSubnet1EIP9755BCCD",
+            "AllocationId"
+          ]
+        },
+        "SubnetId": {
+          "Ref": "netcoreapivpcPublicSubnet1SubnetB51A3C53"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet1/NATGateway"
+      }
+    },
+    "netcoreapivpcPublicSubnet2Subnet6A0DFF78": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.64.0/18",
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PublicSubnet2"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet2/Subnet"
+      }
+    },
+    "netcoreapivpcPublicSubnet2RouteTable2B2C9D99": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet2/RouteTable"
+      }
+    },
+    "netcoreapivpcPublicSubnet2RouteTableAssociation519F1BB8": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPublicSubnet2RouteTable2B2C9D99"
+        },
+        "SubnetId": {
+          "Ref": "netcoreapivpcPublicSubnet2Subnet6A0DFF78"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet2/RouteTableAssociation"
+      }
+    },
+    "netcoreapivpcPublicSubnet2DefaultRouteF9E77C45": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPublicSubnet2RouteTable2B2C9D99"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "netcoreapivpcIGW71123C43"
+        }
+      },
+      "DependsOn": [
+        "netcoreapivpcVPCGW590013C5"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet2/DefaultRoute"
+      }
+    },
+    "netcoreapivpcPublicSubnet2EIPDF8C6DF1": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet2/EIP"
+      }
+    },
+    "netcoreapivpcPublicSubnet2NATGatewayD5B13FEC": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "netcoreapivpcPublicSubnet2EIPDF8C6DF1",
+            "AllocationId"
+          ]
+        },
+        "SubnetId": {
+          "Ref": "netcoreapivpcPublicSubnet2Subnet6A0DFF78"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PublicSubnet2/NATGateway"
+      }
+    },
+    "netcoreapivpcPrivateSubnet1Subnet7F795326": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.128.0/18",
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PrivateSubnet1"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet1/Subnet"
+      }
+    },
+    "netcoreapivpcPrivateSubnet1RouteTable847C4ACE": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet1/RouteTable"
+      }
+    },
+    "netcoreapivpcPrivateSubnet1RouteTableAssociation51BC7D7D": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPrivateSubnet1RouteTable847C4ACE"
+        },
+        "SubnetId": {
+          "Ref": "netcoreapivpcPrivateSubnet1Subnet7F795326"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet1/RouteTableAssociation"
+      }
+    },
+    "netcoreapivpcPrivateSubnet1DefaultRoute608C251A": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPrivateSubnet1RouteTable847C4ACE"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "netcoreapivpcPublicSubnet1NATGateway3491A159"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet1/DefaultRoute"
+      }
+    },
+    "netcoreapivpcPrivateSubnet2Subnet7EC38565": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.192.0/18",
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PrivateSubnet2"
+          },
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet2/Subnet"
+      }
+    },
+    "netcoreapivpcPrivateSubnet2RouteTable7FAA81A9": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc/PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet2/RouteTable"
+      }
+    },
+    "netcoreapivpcPrivateSubnet2RouteTableAssociation7556C53A": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPrivateSubnet2RouteTable7FAA81A9"
+        },
+        "SubnetId": {
+          "Ref": "netcoreapivpcPrivateSubnet2Subnet7EC38565"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet2/RouteTableAssociation"
+      }
+    },
+    "netcoreapivpcPrivateSubnet2DefaultRoute51D96B76": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "netcoreapivpcPrivateSubnet2RouteTable7FAA81A9"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "netcoreapivpcPublicSubnet2NATGatewayD5B13FEC"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/PrivateSubnet2/DefaultRoute"
+      }
+    },
+    "netcoreapivpcIGW71123C43": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "TodoInfraStack/netcore-api-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/IGW"
+      }
+    },
+    "netcoreapivpcVPCGW590013C5": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        },
+        "InternetGatewayId": {
+          "Ref": "netcoreapivpcIGW71123C43"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-api-vpc/VPCGW"
+      }
+    },
+    "netcoreecsclusterCB5C3F5B": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "netcore-cluster",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-cluster/Resource"
+      }
+    },
+    "netcoretaskdefinitionexecroleidB1D04258": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Path": "/",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-exec-role-id/Resource"
+      }
+    },
+    "netcoretaskdefinitionexecroleidDefaultPolicy87028F2A": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":ecr:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":repository/",
+                    {
+                      "Fn::GetAtt": [
+                        "netcorecontainerdefinitionidAssetImageAdoptRepository80A5F73F",
+                        "RepositoryName"
+                      ]
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "Action": "ecr:GetAuthorizationToken",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "netcorecontainerdefinitionidLogGroupD97407CE",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "netcoretaskdefinitionexecroleidDefaultPolicy87028F2A",
+        "Roles": [
+          {
+            "Ref": "netcoretaskdefinitionexecroleidB1D04258"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-exec-role-id/DefaultPolicy/Resource"
+      }
+    },
+    "netcoretaskdefinitiontaskroleid9B074CFA": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ecs.amazonaws.com",
+                  "ecs-tasks.amazonaws.com"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonRDSFullAccess"
+              ]
+            ]
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonSSMFullAccess"
+              ]
+            ]
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonEC2ContainerServiceFullAccess"
+              ]
+            ]
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+              ]
+            ]
+          }
+        ],
+        "Path": "/",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-task-role-id/Resource"
+      }
+    },
+    "netcoretaskdefinitiontaskroleidDefaultPolicyEB670F4D": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ec2:AttachNetworkInterface",
+                "ec2:CreateNetworkInterface",
+                "ec2:CreateNetworkInterfacePermission",
+                "ec2:DeleteNetworkInterface",
+                "ec2:DeleteNetworkInterfacePermission",
+                "ec2:Describe*",
+                "ec2:DetachNetworkInterface",
+                "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                "elasticloadbalancing:DeregisterTargets",
+                "elasticloadbalancing:Describe*",
+                "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
+                "elasticloadbalancing:RegisterTargets"
+              ],
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "netcoretaskdefinitiontaskroleidDefaultPolicyEB670F4D",
+        "Roles": [
+          {
+            "Ref": "netcoretaskdefinitiontaskroleid9B074CFA"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-task-role-id/DefaultPolicy/Resource"
+      }
+    },
+    "netcoreecsdefinitionid50E1B9C5": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Cpu": 256,
+            "Essential": true,
+            "Image": {
+              "Fn::Join": [
+                "",
+                [
+                  {
+                    "Ref": "AWS::AccountId"
+                  },
+                  ".dkr.ecr.",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ".",
+                  {
+                    "Ref": "AWS::URLSuffix"
+                  },
+                  "/",
+                  {
+                    "Fn::Select": [
+                      0,
+                      {
+                        "Fn::Split": [
+                          "@sha256:",
+                          {
+                            "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "@sha256:",
+                  {
+                    "Fn::Select": [
+                      1,
+                      {
+                        "Fn::Split": [
+                          "@sha256:",
+                          {
+                            "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              ]
+            },
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "netcorecontainerdefinitionidLogGroupD97407CE"
+                },
+                "awslogs-stream-prefix": "netcore-app-logs",
+                "awslogs-region": {
+                  "Ref": "AWS::Region"
+                }
+              }
+            },
+            "Memory": 512,
+            "Name": "netcore-container-definition-id",
+            "PortMappings": [
+              {
+                "ContainerPort": 80,
+                "Protocol": "tcp"
+              }
+            ]
+          }
+        ],
+        "Cpu": "256",
+        "ExecutionRoleArn": {
+          "Fn::GetAtt": [
+            "netcoretaskdefinitionexecroleidB1D04258",
+            "Arn"
+          ]
+        },
+        "Family": "netcore-taskdefinition",
+        "Memory": "512",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": [
+            "netcoretaskdefinitiontaskroleid9B074CFA",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-definition-id/Resource"
+      }
+    },
+    "netcorecontainerdefinitionidAssetImageAdoptRepository80A5F73F": {
+      "Type": "Custom::ECRAdoptedRepository",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62c52BE89E9",
+            "Arn"
+          ]
+        },
+        "RepositoryName": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::Split": [
+                "@sha256:",
+                {
+                  "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "DependsOn": [
+        "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleDefaultPolicy6BC8737C",
+        "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleD788AA17"
+      ],
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-container-definition-id/AssetImage/AdoptRepository/Resource/Default"
+      }
+    },
+    "netcorecontainerdefinitionidLogGroupD97407CE": {
+      "Type": "AWS::Logs::LogGroup",
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-container-definition-id/LogGroup/Resource"
+      }
+    },
+    "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleD788AA17": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62c/ServiceRole/Resource"
+      }
+    },
+    "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleDefaultPolicy6BC8737C": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "ecr:GetRepositoryPolicy",
+                "ecr:SetRepositoryPolicy",
+                "ecr:DeleteRepository",
+                "ecr:ListImages",
+                "ecr:BatchDeleteImage"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":ecr:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":repository/",
+                    {
+                      "Fn::Select": [
+                        0,
+                        {
+                          "Fn::Split": [
+                            "@sha256:",
+                            {
+                              "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleDefaultPolicy6BC8737C",
+        "Roles": [
+          {
+            "Ref": "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleD788AA17"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62c/ServiceRole/DefaultPolicy/Resource"
+      }
+    },
+    "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62c52BE89E9": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3Bucket7CBBD48C"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3VersionKey87E3D057"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3VersionKey87E3D057"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Handler": "handler.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleD788AA17",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs8.10",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "Timeout": 300
+      },
+      "DependsOn": [
+        "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleDefaultPolicy6BC8737C",
+        "AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62cServiceRoleD788AA17"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/AdoptEcrRepositorydbc60defc59544bcaa5c28c95d68f62c/Resource",
+        "aws:asset:path": "asset.a65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7",
+        "aws:asset:property": "Code"
+      }
+    },
+    "netcoreecsserviceidLBFB29F4A3": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "Scheme": "internet-facing",
+        "SecurityGroups": [
+          {
+            "Fn::GetAtt": [
+              "netcoreecsserviceidLBSecurityGroup30B61BDC",
+              "GroupId"
+            ]
+          }
+        ],
+        "Subnets": [
+          {
+            "Ref": "netcoreapivpcPublicSubnet1SubnetB51A3C53"
+          },
+          {
+            "Ref": "netcoreapivpcPublicSubnet2Subnet6A0DFF78"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "Type": "application"
+      },
+      "DependsOn": [
+        "netcoreapivpcPublicSubnet1DefaultRoute68A2BA90",
+        "netcoreapivpcPublicSubnet2DefaultRouteF9E77C45"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/LB/Resource"
+      }
+    },
+    "netcoreecsserviceidLBSecurityGroup30B61BDC": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Automatically created Security Group for ELB TodoInfraStacknetcoreecsserviceidLBEB9E4F0E",
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow from anyone on port 80",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/LB/SecurityGroup/Resource"
+      }
+    },
+    "netcoreecsserviceidLBSecurityGrouptoTodoInfraStacknetcoreecsserviceidServiceSecurityGroup5480329B80D81312DF": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Fn::GetAtt": [
+            "netcoreecsserviceidLBSecurityGroup30B61BDC",
+            "GroupId"
+          ]
+        },
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "DestinationSecurityGroupId": {
+          "Fn::GetAtt": [
+            "netcoreecsserviceidServiceSecurityGroup7B4FAA89",
+            "GroupId"
+          ]
+        },
+        "FromPort": 80,
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/LB/SecurityGroup/to TodoInfraStacknetcoreecsserviceidServiceSecurityGroup5480329B:80"
+      }
+    },
+    "netcoreecsserviceidLBPublicListener16BCE565": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "netcoreecsserviceidLBPublicListenerECSGroupCA86918C"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "netcoreecsserviceidLBFB29F4A3"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/LB/PublicListener/Resource"
+      }
+    },
+    "netcoreecsserviceidLBPublicListenerECSGroupCA86918C": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "Port": 80,
+        "Protocol": "HTTP",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "TargetType": "ip",
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/LB/PublicListener/ECSGroup/Resource"
+      }
+    },
+    "netcoreecsserviceidService0D7C17EB": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "TaskDefinition": {
+          "Ref": "netcoreecsdefinitionid50E1B9C5"
+        },
+        "Cluster": {
+          "Ref": "netcoreecsclusterCB5C3F5B"
+        },
+        "DeploymentConfiguration": {
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 50
+        },
+        "DesiredCount": 1,
+        "EnableECSManagedTags": false,
+        "HealthCheckGracePeriodSeconds": 60,
+        "LaunchType": "FARGATE",
+        "LoadBalancers": [
+          {
+            "ContainerName": "netcore-container-definition-id",
+            "ContainerPort": 80,
+            "TargetGroupArn": {
+              "Ref": "netcoreecsserviceidLBPublicListenerECSGroupCA86918C"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": [
+                  "netcoreecsserviceidServiceSecurityGroup7B4FAA89",
+                  "GroupId"
+                ]
+              }
+            ],
+            "Subnets": [
+              {
+                "Ref": "netcoreapivpcPrivateSubnet1Subnet7F795326"
+              },
+              {
+                "Ref": "netcoreapivpcPrivateSubnet2Subnet7EC38565"
+              }
+            ]
+          }
+        },
+        "ServiceName": "netcore-ecs-service",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ]
+      },
+      "DependsOn": [
+        "netcoreecsserviceidLBPublicListenerECSGroupCA86918C",
+        "netcoreecsserviceidLBPublicListener16BCE565"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/Service/Service"
+      }
+    },
+    "netcoreecsserviceidServiceSecurityGroup7B4FAA89": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "TodoInfraStack/netcore-ecs-service-id/Service/SecurityGroup",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/Service/SecurityGroup/Resource"
+      }
+    },
+    "netcoreecsserviceidServiceSecurityGroupfromTodoInfraStacknetcoreecsserviceidLBSecurityGroup3CB6898D8072168EF7": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "FromPort": 80,
+        "GroupId": {
+          "Fn::GetAtt": [
+            "netcoreecsserviceidServiceSecurityGroup7B4FAA89",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "netcoreecsserviceidLBSecurityGroup30B61BDC",
+            "GroupId"
+          ]
+        },
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/Service/SecurityGroup/from TodoInfraStacknetcoreecsserviceidLBSecurityGroup3CB6898D:80"
+      }
+    },
+    "netcoreecsserviceidServiceTaskCountTargetA1922E33": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "Properties": {
+        "MaxCapacity": 2,
+        "MinCapacity": 1,
+        "ResourceId": {
+          "Fn::Join": [
+            "",
+            [
+              "service/",
+              {
+                "Ref": "netcoreecsclusterCB5C3F5B"
+              },
+              "/",
+              {
+                "Fn::GetAtt": [
+                  "netcoreecsserviceidService0D7C17EB",
+                  "Name"
+                ]
+              }
+            ]
+          ]
+        },
+        "RoleARN": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":iam::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
+            ]
+          ]
+        },
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "ServiceNamespace": "ecs"
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/Service/TaskCount/Target/Resource"
+      }
+    },
+    "netcoreecsserviceidServiceTaskCountTargetscaleoncpuidB009736B": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "Properties": {
+        "PolicyName": "TodoInfraStacknetcoreecsserviceidServiceTaskCountTargetscaleoncpuidBBF4F4A7",
+        "PolicyType": "TargetTrackingScaling",
+        "ScalingTargetId": {
+          "Ref": "netcoreecsserviceidServiceTaskCountTargetA1922E33"
+        },
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+          },
+          "ScaleInCooldown": 60,
+          "ScaleOutCooldown": 60,
+          "TargetValue": 50
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-ecs-service-id/Service/TaskCount/Target/scale_on_cpu_id/Resource"
+      }
+    },
+    "netcoresubnetid": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "DBSubnetGroupDescription": "netcore-subnet-desc",
+        "SubnetIds": [
+          {
+            "Ref": "netcoreapivpcPrivateSubnet1Subnet7F795326"
+          },
+          {
+            "Ref": "netcoreapivpcPrivateSubnet2Subnet7EC38565"
+          }
+        ],
+        "DBSubnetGroupName": "netcore-subnet-grp",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-subnet-id"
+      }
+    },
+    "cfndbsg": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Access to the RDS",
+        "GroupName": "netcore-cdk-app-ecs-db-sg",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "VpcId": {
+          "Ref": "netcoreapivpc96E2D1AB"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/cfn-db-sg"
+      }
+    },
+    "cfndbsgingress": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "Ingress 3306",
+        "FromPort": 3306,
+        "GroupId": {
+          "Fn::GetAtt": [
+            "cfndbsg",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "netcoreecsserviceidServiceSecurityGroup7B4FAA89",
+            "GroupId"
+          ]
+        },
+        "ToPort": 3306
+      },
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/cfn-db-sg-ingress"
+      }
+    },
+    "netcoreauroradatabase": {
+      "Type": "AWS::RDS::DBCluster",
+      "Properties": {
+        "Engine": "aurora",
+        "DatabaseName": "todo",
+        "DBSubnetGroupName": "netcore-subnet-grp",
+        "EngineMode": "serverless",
+        "MasterUsername": "master",
+        "MasterUserPassword": "netc0re123",
+        "Port": 3306,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "netcore-cdk-app"
+          }
+        ],
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "cfndbsg",
+              "GroupId"
+            ]
+          }
+        ]
+      },
+      "DependsOn": [
+        "netcoresubnetid"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-aurora-database"
+      }
+    },
+    "netcoreimagerepodbconnstringid": {
+      "Type": "AWS::SSM::Parameter",
+      "Properties": {
+        "Type": "String",
+        "Value": {
+          "Fn::Join": [
+            "",
+            [
+              "server=",
+              {
+                "Fn::GetAtt": [
+                  "netcoreauroradatabase",
+                  "Endpoint.Address"
+                ]
+              },
+              ";port=3306;database=todo;user=master;password=netc0re123"
+            ]
+          ]
+        },
+        "Description": "Maintains the Aurora Database Connection String",
+        "Name": "/Database/Config/AuroraConnectionString",
+        "Tags": {
+          "Name": "netcore-cdk-app"
+        }
+      },
+      "DependsOn": [
+        "netcoreauroradatabase"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "TodoInfraStack/netcore-image-repo-db-conn-string-id"
+      }
+    }
+  },
+  "Parameters": {
+    "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F": {
+      "Type": "String",
+      "Description": "ECR repository name and tag for asset \"e2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0a\""
+    },
+    "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3Bucket7CBBD48C": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"a65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7\""
+    },
+    "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3VersionKey87E3D057": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"a65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7\""
+    },
+    "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7ArtifactHash3E217B68": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"a65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7\""
+    }
+  },
+  "Outputs": {
+    "netcoreecsserviceidLoadBalancerDNS15BDF84A": {
+      "Value": {
+        "Fn::GetAtt": [
+          "netcoreecsserviceidLBFB29F4A3",
+          "DNSName"
+        ]
+      }
+    },
+    "netcoreecsserviceidServiceURLF1D5D5BD": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "http://",
+            {
+              "Fn::GetAtt": [
+                "netcoreecsserviceidLBFB29F4A3",
+                "DNSName"
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    "LoadBalancerDNS": {
+      "Value": {
+        "Fn::GetAtt": [
+          "netcoreecsserviceidLBFB29F4A3",
+          "DNSName"
+        ]
+      }
+    },
+    "apivalues": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "http://",
+            {
+              "Fn::GetAtt": [
+                "netcoreecsserviceidLBFB29F4A3",
+                "DNSName"
+              ]
+            },
+            "/api/values"
+          ]
+        ]
+      }
+    },
+    "apitodo": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "http://",
+            {
+              "Fn::GetAtt": [
+                "netcoreecsserviceidLBFB29F4A3",
+                "DNSName"
+              ]
+            },
+            "/api/todo"
+          ]
+        ]
+      }
+    }
+  }
+}
