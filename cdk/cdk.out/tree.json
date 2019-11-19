@@ -165,16 +165,22 @@
             "path": "TodoInfraStack/netcore-task-definition-exec-role-id",
             "children": [
               {
-                "id": "Resource",
-                "path": "TodoInfraStack/netcore-task-definition-exec-role-id/Resource"
-              },
-              {
-                "id": "DefaultPolicy",
-                "path": "TodoInfraStack/netcore-task-definition-exec-role-id/DefaultPolicy",
+                "id": "netcore-task-definition-exec-role-id-role",
+                "path": "TodoInfraStack/netcore-task-definition-exec-role-id/netcore-task-definition-exec-role-id-role",
                 "children": [
                   {
                     "id": "Resource",
-                    "path": "TodoInfraStack/netcore-task-definition-exec-role-id/DefaultPolicy/Resource"
+                    "path": "TodoInfraStack/netcore-task-definition-exec-role-id/netcore-task-definition-exec-role-id-role/Resource"
+                  },
+                  {
+                    "id": "DefaultPolicy",
+                    "path": "TodoInfraStack/netcore-task-definition-exec-role-id/netcore-task-definition-exec-role-id-role/DefaultPolicy",
+                    "children": [
+                      {
+                        "id": "Resource",
+                        "path": "TodoInfraStack/netcore-task-definition-exec-role-id/netcore-task-definition-exec-role-id-role/DefaultPolicy/Resource"
+                      }
+                    ]
                   }
                 ]
               }
@@ -185,16 +191,22 @@
             "path": "TodoInfraStack/netcore-task-definition-task-role-id",
             "children": [
               {
-                "id": "Resource",
-                "path": "TodoInfraStack/netcore-task-definition-task-role-id/Resource"
-              },
-              {
-                "id": "DefaultPolicy",
-                "path": "TodoInfraStack/netcore-task-definition-task-role-id/DefaultPolicy",
+                "id": "netcore-task-definition-task-role-id-role",
+                "path": "TodoInfraStack/netcore-task-definition-task-role-id/netcore-task-definition-task-role-id-role",
                 "children": [
                   {
                     "id": "Resource",
-                    "path": "TodoInfraStack/netcore-task-definition-task-role-id/DefaultPolicy/Resource"
+                    "path": "TodoInfraStack/netcore-task-definition-task-role-id/netcore-task-definition-task-role-id-role/Resource"
+                  },
+                  {
+                    "id": "DefaultPolicy",
+                    "path": "TodoInfraStack/netcore-task-definition-task-role-id/netcore-task-definition-task-role-id-role/DefaultPolicy",
+                    "children": [
+                      {
+                        "id": "Resource",
+                        "path": "TodoInfraStack/netcore-task-definition-task-role-id/netcore-task-definition-task-role-id-role/DefaultPolicy/Resource"
+                      }
+                    ]
                   }
                 ]
               }
@@ -261,12 +273,12 @@
             "path": "TodoInfraStack/AssetParameters",
             "children": [
               {
-                "id": "e2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0a",
-                "path": "TodoInfraStack/AssetParameters/e2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0a",
+                "id": "efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0",
+                "path": "TodoInfraStack/AssetParameters/efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0",
                 "children": [
                   {
                     "id": "ImageName",
-                    "path": "TodoInfraStack/AssetParameters/e2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0a/ImageName"
+                    "path": "TodoInfraStack/AssetParameters/efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0/ImageName"
                   }
                 ]
               },

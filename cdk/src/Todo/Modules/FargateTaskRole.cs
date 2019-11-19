@@ -1,13 +1,34 @@
-
+using Amazon.CDK;
 using Amazon.CDK.AWS.IAM;
 using System.Collections.Generic;
 
-namespace Todo.Utilities
+namespace Todo.Modules
 {
-    public static class ServiceProvider
+    public sealed class FargateTaskRole: Construct
     {
+        Construct scope = null;
+        string id = "";
 
-        public static Role GetRole(TodoInfraStack stack, string roleId, 
+        public Role Role {get;set;}
+        public FargateTaskRole(Construct scope, string id): base(scope, id)
+        {
+           this.scope = scope;
+           this.id = id;
+
+            this.Role =  GetRole(
+                this, id+"-role",
+                Utilities.ServiceBuilder.GetTaskDefinitionTaskRoleManagedPolicyARNs(), 
+                new string[]{
+                    Constants.CODE_TASK_DEFINITION_TASK_ROLE_SERVICE,
+                    Constants.CODE_TASK_DEFINITION_EXECUTION_SERVICE
+                }, 
+                "ecsTaskExecutionRole", 
+                Utilities.ServiceBuilder.GetTaskDefinitionTaskRoleActions(),
+                "*"
+            );
+        }
+
+        public Role GetRole(Construct scope, string roleId, 
                 string[] ManagedPolicyArns, 
                 string[] PrincipalServices,
                 string PolicyName, string[] Actions, string resources){
@@ -31,7 +52,7 @@ namespace Todo.Utilities
                 };
             }
 
-            var iamRole = new Role(stack, roleId, roleProps);
+            var iamRole = new Role(scope, roleId, roleProps);
 
             foreach(string arn in ManagedPolicyArns){
                 iamRole.AddManagedPolicy(ManagedPolicy.FromAwsManagedPolicyName(arn));

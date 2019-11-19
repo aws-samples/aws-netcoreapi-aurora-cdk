@@ -455,7 +455,7 @@
         "aws:cdk:path": "TodoInfraStack/netcore-ecs-cluster/Resource"
       }
     },
-    "netcoretaskdefinitionexecroleidB1D04258": {
+    "netcoretaskdefinitionexecroleidnetcoretaskdefinitionexecroleidrole897DD9B1": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -479,10 +479,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-exec-role-id/Resource"
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-exec-role-id/netcore-task-definition-exec-role-id-role/Resource"
       }
     },
-    "netcoretaskdefinitionexecroleidDefaultPolicy87028F2A": {
+    "netcoretaskdefinitionexecroleidnetcoretaskdefinitionexecroleidroleDefaultPolicyBF82838D": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -554,18 +554,18 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "netcoretaskdefinitionexecroleidDefaultPolicy87028F2A",
+        "PolicyName": "netcoretaskdefinitionexecroleidnetcoretaskdefinitionexecroleidroleDefaultPolicyBF82838D",
         "Roles": [
           {
-            "Ref": "netcoretaskdefinitionexecroleidB1D04258"
+            "Ref": "netcoretaskdefinitionexecroleidnetcoretaskdefinitionexecroleidrole897DD9B1"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-exec-role-id/DefaultPolicy/Resource"
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-exec-role-id/netcore-task-definition-exec-role-id-role/DefaultPolicy/Resource"
       }
     },
-    "netcoretaskdefinitiontaskroleid9B074CFA": {
+    "netcoretaskdefinitiontaskroleidnetcoretaskdefinitiontaskroleidrole229DC336": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "AssumeRolePolicyDocument": {
@@ -642,10 +642,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-task-role-id/Resource"
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-task-role-id/netcore-task-definition-task-role-id-role/Resource"
       }
     },
-    "netcoretaskdefinitiontaskroleidDefaultPolicyEB670F4D": {
+    "netcoretaskdefinitiontaskroleidnetcoretaskdefinitiontaskroleidroleDefaultPolicyAF0A827E": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyDocument": {
@@ -671,15 +671,15 @@
           ],
           "Version": "2012-10-17"
         },
-        "PolicyName": "netcoretaskdefinitiontaskroleidDefaultPolicyEB670F4D",
+        "PolicyName": "netcoretaskdefinitiontaskroleidnetcoretaskdefinitiontaskroleidroleDefaultPolicyAF0A827E",
         "Roles": [
           {
-            "Ref": "netcoretaskdefinitiontaskroleid9B074CFA"
+            "Ref": "netcoretaskdefinitiontaskroleidnetcoretaskdefinitiontaskroleidrole229DC336"
           }
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-task-role-id/DefaultPolicy/Resource"
+        "aws:cdk:path": "TodoInfraStack/netcore-task-definition-task-role-id/netcore-task-definition-task-role-id-role/DefaultPolicy/Resource"
       }
     },
     "netcoreecsdefinitionid50E1B9C5": {
@@ -712,7 +712,7 @@
                         "Fn::Split": [
                           "@sha256:",
                           {
-                            "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                            "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
                           }
                         ]
                       }
@@ -726,7 +726,7 @@
                         "Fn::Split": [
                           "@sha256:",
                           {
-                            "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                            "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
                           }
                         ]
                       }
@@ -760,7 +760,7 @@
         "Cpu": "256",
         "ExecutionRoleArn": {
           "Fn::GetAtt": [
-            "netcoretaskdefinitionexecroleidB1D04258",
+            "netcoretaskdefinitionexecroleidnetcoretaskdefinitionexecroleidrole897DD9B1",
             "Arn"
           ]
         },
@@ -778,7 +778,7 @@
         ],
         "TaskRoleArn": {
           "Fn::GetAtt": [
-            "netcoretaskdefinitiontaskroleid9B074CFA",
+            "netcoretaskdefinitiontaskroleidnetcoretaskdefinitiontaskroleidrole229DC336",
             "Arn"
           ]
         }
@@ -803,7 +803,7 @@
               "Fn::Split": [
                 "@sha256:",
                 {
-                  "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                  "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
                 }
               ]
             }
@@ -906,7 +906,7 @@
                           "Fn::Split": [
                             "@sha256:",
                             {
-                              "Ref": "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F"
+                              "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
                             }
                           ]
                         }
@@ -1437,9 +1437,9 @@
     }
   },
   "Parameters": {
-    "AssetParameterse2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0aImageName710F6D5F": {
+    "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A": {
       "Type": "String",
-      "Description": "ECR repository name and tag for asset \"e2d01e75320bac66728dfea2e2a3d4a554d34b293e7d4fad16ac1f58eba34f0a\""
+      "Description": "ECR repository name and tag for asset \"efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0\""
     },
     "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3Bucket7CBBD48C": {
       "Type": "String",

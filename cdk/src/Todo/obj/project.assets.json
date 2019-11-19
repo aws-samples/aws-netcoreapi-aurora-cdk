@@ -2542,9 +2542,6 @@
     ".NETCoreApp,Version=v2.1": [
       "Amazon.CDK >= 1.15.0-devpreview",
       "Amazon.CDK.AWS.ApplicationAutoScaling >= 1.15.0-devpreview",
-      "Amazon.CDK.AWS.CloudWatch >= 1.15.0-devpreview",
-      "Amazon.CDK.AWS.CodeBuild >= 1.15.0-devpreview",
-      "Amazon.CDK.AWS.CodeCommit >= 1.15.0-devpreview",
       "Amazon.CDK.AWS.ECR >= 1.15.0-devpreview",
       "Amazon.CDK.AWS.ECS >= 1.15.0-devpreview",
       "Amazon.CDK.AWS.ECS.Patterns >= 1.15.0-devpreview",
@@ -2563,11 +2560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj",
+      "projectUniqueName": "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj",
       "projectName": "Todo",
-      "projectPath": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj",
+      "projectPath": "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/Todo.csproj",
       "packagesPath": "/Users/ramansiv/.nuget/packages/",
-      "outputPath": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/",
+      "outputPath": "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/cdk/src/Todo/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -2600,18 +2597,6 @@
             "version": "[1.15.0-devpreview, )"
           },
           "Amazon.CDK.AWS.ApplicationAutoScaling": {
-            "target": "Package",
-            "version": "[1.15.0-devpreview, )"
-          },
-          "Amazon.CDK.AWS.CloudWatch": {
-            "target": "Package",
-            "version": "[1.15.0-devpreview, )"
-          },
-          "Amazon.CDK.AWS.CodeBuild": {
-            "target": "Package",
-            "version": "[1.15.0-devpreview, )"
-          },
-          "Amazon.CDK.AWS.CodeCommit": {
             "target": "Package",
             "version": "[1.15.0-devpreview, )"
           },

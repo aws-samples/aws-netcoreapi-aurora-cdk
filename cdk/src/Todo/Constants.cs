@@ -4,7 +4,7 @@ namespace Todo
     {
         public static string STACK_PREFIX = "netcore-";
         public static string APP_NAME = STACK_PREFIX + "cdk-app";
-        public static string VPC_ID = STACK_PREFIX+ "api-vpc";
+        public static string VPC_NAME = STACK_PREFIX+ "api-vpc";
         public static string CIDR_RANGE = "10.0.0.0/16";
         public static string ECS_ID = STACK_PREFIX+ "ecs-cluster";
         public static string ECS_CLUSTER_NAME = STACK_PREFIX+ "cluster";

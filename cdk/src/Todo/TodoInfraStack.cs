@@ -12,13 +12,15 @@ using cdkstack = Amazon.CDK;
 using ec2 = Amazon.CDK.AWS.EC2;
 using ssm = Amazon.CDK.AWS.SSM;
 
+using Todo.Modules;
+
 namespace Todo
 {
     public class TodoInfraStack : cdkstack.Stack
     {
         public TodoInfraStack(Construct parent, string id, IStackProps props) : base(parent, id, props)
         {
-            IVpc todoVpc = new Vpc(this, Constants.VPC_ID, new VpcProps{
+            IVpc todoVpc = new Vpc(this, Constants.VPC_NAME, new VpcProps{
                 Cidr = Constants.CIDR_RANGE,
                 MaxAzs = 4
             });
@@ -37,35 +39,16 @@ namespace Todo
             };
             portMappings.Add(containerPortMapping);
 
-            var todoFargateExecutionRole =  Utilities.ServiceProvider.GetRole(
-                this, Constants.CODE_TASK_DEFINITION_EXECUTION_ROLE_ID,
-                new string[]{}, 
-                new string[]{
-                    Constants.CODE_TASK_DEFINITION_EXECUTION_SERVICE
-                }, 
-                Constants.CODE_TASK_DEFINITION_EXECUTION_ROLE_POLICY_NAME, 
-                Utilities.ServiceBuilder.GetTaskDefinitionExecutionRoleActions(),
-                "*"
-            );
-
-            var todoFargateTaskRole =  Utilities.ServiceProvider.GetRole(
-                this, Constants.CODE_TASK_DEFINITION_TASK_ROLE_ID,
-                Utilities.ServiceBuilder.GetTaskDefinitionTaskRoleManagedPolicyARNs(), 
-                new string[]{
-                    Constants.CODE_TASK_DEFINITION_TASK_ROLE_SERVICE,
-                    Constants.CODE_TASK_DEFINITION_EXECUTION_SERVICE
-                }, 
-                "ecsTaskExecutionRole", 
-                Utilities.ServiceBuilder.GetTaskDefinitionTaskRoleActions(),
-                "*"
-            );
-
+            // Get Fargate Roles 
+            var todoFargateExecutionRoleProvider =  new FargateExecutionRole(this, Constants.CODE_TASK_DEFINITION_EXECUTION_ROLE_ID);
+            var todoFargateTaskRoleProvider =  new FargateTaskRole(this, Constants.CODE_TASK_DEFINITION_TASK_ROLE_ID);
+            
             var fargateTaskDefinitionProps = new FargateTaskDefinitionProps{
                         Family = Constants.TASK_FAMILY,
                         Cpu = Constants.CONTAINER_CPU,
                         MemoryLimitMiB = Constants.CONTAINER_MEMORY,
-                        TaskRole = todoFargateTaskRole,
-                        ExecutionRole = todoFargateExecutionRole
+                        TaskRole = todoFargateTaskRoleProvider.Role,
+                        ExecutionRole = todoFargateExecutionRoleProvider.Role
             };
 
             var todoFargateTaskDefinition = new FargateTaskDefinition(
