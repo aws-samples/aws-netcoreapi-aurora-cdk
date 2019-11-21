@@ -129,3 +129,13 @@ webapi/obj/todo-app.csproj.nuget.cache
 webapi/obj/todo-app.csproj.nuget.dgspec.json
 webapi/obj/todo-app.csproj.nuget.g.props
 webapi/obj/todo-app.csproj.nuget.g.targets
+cdk/src/Todo/obj/project.assets.json
+cdk/src/Todo/obj/Todo.csproj.nuget.cache
+cdk/src/Todo/obj/Todo.csproj.nuget.dgspec.json
+cdk/src/Todo/obj/Todo.csproj.nuget.g.props
+cdk/src/Todo/obj/Todo.csproj.nuget.g.targets
+cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.assets.cache
+cdk/src/Todo/obj/Debug/netcoreapp2.1/Todo.csprojAssemblyReference.cache
+cdk/cdk.out/manifest.json
+cdk/cdk.out/TodoInfraStack.template.json
+cdk/cdk.out/tree.json
