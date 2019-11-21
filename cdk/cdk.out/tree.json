@@ -273,12 +273,12 @@
             "path": "TodoInfraStack/AssetParameters",
             "children": [
               {
-                "id": "efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0",
-                "path": "TodoInfraStack/AssetParameters/efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0",
+                "id": "9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcb",
+                "path": "TodoInfraStack/AssetParameters/9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcb",
                 "children": [
                   {
                     "id": "ImageName",
-                    "path": "TodoInfraStack/AssetParameters/efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0/ImageName"
+                    "path": "TodoInfraStack/AssetParameters/9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcb/ImageName"
                   }
                 ]
               },

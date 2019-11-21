@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj": {}
+    "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj": {}
   },
   "projects": {
-    "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj": {
+    "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj",
+        "projectUniqueName": "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj",
         "projectName": "todo-app",
-        "projectPath": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj",
+        "projectPath": "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/webapi/todo-app.csproj",
         "packagesPath": "/Users/ramansiv/.nuget/packages/",
-        "outputPath": "/Users/ramansiv/Documents/Code/AWS/cdk/dotnet/GITHUB/aws-netcoreapi-aurora-cdk/webapi/obj/",
+        "outputPath": "/Users/ramansiv/Documents/Projects/BLOG/GITHUB/aws-netcoreapi-aurora-cdk/webapi/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -20,13 +20,13 @@
           "/Users/ramansiv/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.2"
+          "netcoreapp3.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.2": {
+          "netcoreapp3.0": {
             "projectReferences": {}
           }
         },
@@ -37,7 +37,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.2": {
+        "netcoreapp3.0": {
           "dependencies": {
             "AWSSDK.SimpleSystemsManagement": {
               "target": "Package",
@@ -46,18 +46,6 @@
             "Amazon.Extensions.Configuration.SystemsManager": {
               "target": "Package",
               "version": "[1.2.0, )"
-            },
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
             },
             "MySql.Data": {
               "target": "Package",
@@ -78,6 +66,14 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }

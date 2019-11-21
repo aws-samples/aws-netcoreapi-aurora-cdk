@@ -712,7 +712,7 @@
                         "Fn::Split": [
                           "@sha256:",
                           {
-                            "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
+                            "Ref": "AssetParameters9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcbImageNameD328B1E2"
                           }
                         ]
                       }
@@ -726,7 +726,7 @@
                         "Fn::Split": [
                           "@sha256:",
                           {
-                            "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
+                            "Ref": "AssetParameters9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcbImageNameD328B1E2"
                           }
                         ]
                       }
@@ -803,7 +803,7 @@
               "Fn::Split": [
                 "@sha256:",
                 {
-                  "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
+                  "Ref": "AssetParameters9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcbImageNameD328B1E2"
                 }
               ]
             }
@@ -906,7 +906,7 @@
                           "Fn::Split": [
                             "@sha256:",
                             {
-                              "Ref": "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A"
+                              "Ref": "AssetParameters9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcbImageNameD328B1E2"
                             }
                           ]
                         }
@@ -1437,9 +1437,9 @@
     }
   },
   "Parameters": {
-    "AssetParametersefd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0ImageNameDC0FE73A": {
+    "AssetParameters9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcbImageNameD328B1E2": {
       "Type": "String",
-      "Description": "ECR repository name and tag for asset \"efd0e78e1f35b932886f4befc71b6c31e56716189036e5fd107eedde00520cc0\""
+      "Description": "ECR repository name and tag for asset \"9a609948af623081ea981b32a6ffb95c3103826706fafd31ab627e624c5f7bcb\""
     },
     "AssetParametersa65ac4beaa2b5a7b20eebf3b7c5c1c886b71428afa377e02dab0d10ab3be57e7S3Bucket7CBBD48C": {
       "Type": "String",

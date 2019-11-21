@@ -25,9 +25,11 @@ In this blog, we use AWS CDK to define the cloud resources.
 
 ### Design Considerations
 
-1. We use dotnet cli/version 2.2. The application is not tested in higher/3.x versions but ideally should be able to code/run the application
+1. "webapi" - We use dotnet cli/version 2.1 (LTS). The application is not tested in higher/3.x versions but ideally should be able to code/run the application
 
-2. AWS CDK 1.15.0-devpreview is the stable version at the time of writing this application. Any upcoming or future/release version may have possible/different implementation on the CDK implementation
+2. "cdk" - AWS CDK 1.15.0-devpreview is the stable version at the time of writing this application. Any upcoming or future/release version may have possible/different implementation on the CDK implementation
+    - Refer cdk\src\Todo\Todo.csproj for TargetFramework and Package Reference versions
+    - Ex: netcoreapp3.0 and 1.17.1-devpreview also works
 
 ### Prerequisites:
     - Docker - Install & make sure to have your Docker daemon running on your machine.
@@ -40,6 +42,7 @@ In this blog, we use AWS CDK to define the cloud resources.
 ### Steps
 
 1. Clone this repository and execute the below command to spin up the infrastructure and the application
+    - cd aws-netcoreapi-aurora-cdk\cdk
 
     - Option 1: 
         - "src" folder has a "run.sh" script that

@@ -20,13 +20,13 @@
           "/Users/ramansiv/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "netcoreapp3.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
+          "netcoreapp3.0": {
             "projectReferences": {}
           }
         },
@@ -37,53 +37,47 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
+        "netcoreapp3.0": {
           "dependencies": {
             "Amazon.CDK": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.ApplicationAutoScaling": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.ECR": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.ECS": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.ECS.Patterns": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.ElasticLoadBalancingV2": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.IAM": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.RDS": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.S3": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
+              "version": "[1.17.1-devpreview, )"
             },
             "Amazon.CDK.AWS.SSM": {
               "target": "Package",
-              "version": "[1.15.0-devpreview, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
+              "version": "[1.17.1-devpreview, )"
             }
           },
           "imports": [
@@ -96,6 +90,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
           "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
